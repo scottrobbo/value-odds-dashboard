@@ -29,7 +29,7 @@ Download filtered data for deeper analysis
 ## Live App
 
 Visit the live dashboard:  
-https://streamlit URL here
+https://value-odds.streamlit.app
 
 ## Coming Soon
 
