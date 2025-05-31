@@ -49,7 +49,6 @@ filtered = df[
 ]
 
 st.title("📊 Value Odds – Match Rating Backtest Dashboard")
-st.markdown("Explore historical value bets by league, season, match rating and more.")
 
 with st.expander("ℹ️ About This Dashboard"):
     st.markdown("""
