@@ -3,6 +3,52 @@ import pandas as pd
 import altair as alt
 import os
 
+# === HEADER + INTRO ===
+st.set_page_config(page_title="Value Odds Dashboard", layout="wide")
+
+st.title("📊 Value Odds – Match Rating Backtest Dashboard")
+
+with st.expander("ℹ️ About This Dashboard", expanded=True):
+    st.markdown("""
+    A professional-grade Streamlit dashboard that analyses football match betting value using match ratings and regression-based fair odds.
+    
+    This dashboard is part of the **Value Odds advisory system**, designed to identify and track value bets across top global football leagues.
+    
+    ### 🧩 Features
+
+    - Filter historical bets by:
+      - Match Rating
+      - Market (Home/Draw/Away)
+      - Value Tier (Fair, Good, Excellent)
+      - Season
+      - League 
+
+    - Visualise:
+      - Profit/loss by Match Rating
+      - ROI by Value Tier
+      - Strategy trends over time
+
+    - Download filtered data for deeper analysis
+
+    ### ⚙️ Powered By
+
+    - **API-Football** – for live fixtures and form data  
+    - **Odds API** – for real-time market odds  
+    - **In-house regression model** – trained on rolling 3-season match result data
+
+    ### 🚀 Coming Soon
+
+    - Live tips feed for upcoming matches
+    - Text/Email alerts
+    - BTTS, Over/Under, Correct Score market models
+    - Premium advisory service (limited subscriptions)
+
+    ### 📩 Contact & Access
+
+    To request early access or join the waiting list for paid features, email:  
+    **thesoccerspy@yahoo.com**
+    """)
+
 # === CONFIG ===
 data_dir = "leagues"  # folder that contains your backtest CSVs like backtest_championship.csv, etc.
 
@@ -47,49 +93,6 @@ filtered = df[
     (df['Value Rating'].isin(selected_value)) &
     (df['MatchRating'].between(*selected_ratings))
 ]
-
-st.title("📊 Value Odds – Match Rating Backtest Dashboard")
-
-with st.expander("ℹ️ About This Dashboard"):
-    st.markdown("""
-    A professional-grade Streamlit dashboard that analyses football match betting value using match ratings and regression-based fair odds.
-    
-    This dashboard is part of the **Value Odds advisory system**, designed to identify and track value bets across top global football leagues.
-    
-    ### 🧩 Features
-
-    - Filter historical bets by:
-      - Match Rating
-      - Market (Home/Draw/Away)
-      - Value Tier (Fair, Good, Excellent)
-      - Season
-      - League 
-
-    - Visualise:
-      - Profit/loss by Match Rating
-      - ROI by Value Tier
-      - Strategy trends over time
-
-    - Download filtered data for deeper analysis
-
-    ### ⚙️ Powered By
-
-    - **API-Football** – for live fixtures and form data  
-    - **Odds API** – for real-time market odds  
-    - **In-house regression model** – trained on rolling 3-season match result data
-
-    ### 🚀 Coming Soon
-
-    - Live tips feed for upcoming matches
-    - Text/Email alerts
-    - BTTS, Over/Under, Correct Score market models
-    - Premium advisory service (limited subscriptions)
-
-    ### 📩 Contact & Access
-
-    To request early access or join the waiting list for paid features, email:  
-    **thesoccerspy@yahoo.com**
-    """)
 
 # === KPIs ===
 total_bets = len(filtered)
