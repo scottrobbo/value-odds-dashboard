@@ -51,6 +51,47 @@ filtered = df[
 st.title("📊 Value Odds – Match Rating Backtest Dashboard")
 st.markdown("Explore historical value bets by league, season, match rating and more.")
 
+with st.expander("ℹ️ About This Dashboard"):
+    st.markdown("""
+    A professional-grade Streamlit dashboard that analyses football match betting value using match ratings and regression-based fair odds.
+    
+    This dashboard is part of the **Value Odds advisory system**, designed to identify and track value bets across top global football leagues.
+    
+    ### 🧩 Features
+
+    - Filter historical bets by:
+      - Match Rating
+      - Market (Home/Draw/Away)
+      - Value Tier (Fair, Good, Excellent)
+      - Season
+      - League 
+
+    - Visualise:
+      - Profit/loss by Match Rating
+      - ROI by Value Tier
+      - Strategy trends over time
+
+    - Download filtered data for deeper analysis
+
+    ### ⚙️ Powered By
+
+    - **API-Football** – for live fixtures and form data  
+    - **Odds API** – for real-time market odds  
+    - **In-house regression model** – trained on rolling 3-season match result data
+
+    ### 🚀 Coming Soon
+
+    - Live tips feed for upcoming matches
+    - Text/Email alerts
+    - BTTS, Over/Under, Correct Score market models
+    - Premium advisory service (limited subscriptions)
+
+    ### 📩 Contact & Access
+
+    To request early access or join the waiting list for paid features, email:  
+    **thesoccerspy@yahoo.com**
+    """)
+
 # === KPIs ===
 total_bets = len(filtered)
 wins = (filtered['Result'] == 'win').sum()
